@@ -1,0 +1,30 @@
+const initialState = {
+  states: [
+    "AZ", "CA", "CO", "FL", "IL", "NM", "NJ", "NV", "NY", "TX"
+  ],
+  myState: "",
+  lastName: "",
+  firstName: "",
+  addressPhysical: "",
+  aptUnitSpacePhysical: "",
+  cityPhysical: "",
+  zipCodePhysical: "",
+  addressMailing: "",
+  aptUnitSpaceMailing: "",
+  cityMailing: "",
+  zipCodeMailing: "",
+  lastFourDigitsSS: "",
+  stateIDNumber: "",
+  optionalTribalIDNumber:  "",
+  dateOfBirth: "",
+  stateOrCountryOfBirth: "",
+  parties: ["Democratic", "Republican", "Other"],
+  partyPreference: "",
+  telephoneNumber: "",
+  alienRegistrationNumber: "",
+  occupation: "",
+  otherStateRegisteredToVote: "",
+  listFormerName: "",
+  fatherNameOrMotherMaidenName: "",
+  willingToWorkAtPollOnElectionDay
+}
