@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import Question from './../components/Questions/Question';
 import TermsOfConditions from './../components/staticComponents/TermsOfConditions';
 import ThankYou from './../components/staticComponents/ThankYou';
 import Vision from './../components/staticComponents/Vision';
 
 const routes = [
+  {
+    path: '/questions/:questionNumber',
+    component: Question
+  },
+  {
+    path: '/questions',
+    component: Question
+  },
   {
     path: '/thank-you',
     component: ThankYou

@@ -5,10 +5,13 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import ReactGA from 'react-ga';
 import voterReducer from './../store/reducers/voterReducer';
+import voterReducerAZ from '../store/reducers/voterReducerAzSpanish';
+
 import App from './App';
 
 const rootReducer = combineReducers({
-  voterReducer
+  voterReducer,
+  voterReducerAZ
 });
 
 const logger = store => {
