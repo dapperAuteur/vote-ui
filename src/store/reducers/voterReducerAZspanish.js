@@ -1,6 +1,7 @@
 import * as actionTypes from './../actions/actionTypes';
 
 const initialState = {
+  index: 0,
   language: "",
   questions: [
     {
@@ -304,6 +305,16 @@ const initialState = {
 
 const voterReducerAZ = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.DECREMENT_INDEX_SPANISH:
+      let index = state.index--;
+      return Object.assign({}, state, {
+        index
+      });
+    case actionTypes.INCREMENT_INDEX_SPANISH:
+      let index = state.index++;
+      return Object.assign({}, state, {
+        index
+      });
     case actionTypes.EDIT_RESPONSE:
       return state;
     case actionTypes.GET_QUESTIONS_AZ_SPANISH:

@@ -8,12 +8,17 @@
 // } from './voterActions';
 
 export {
-  editResponseSpanish,
-  getQuestionsAzSpanish,
-  setResponseSpanish
-} from './voterActionAzSpanish';
-export {
+  decrementIndexEnglish,
   editResponseEnglish,
   getQuestionsAzEnglish,
+  incrementIndexEnglish,
   setResponseEnglish
 } from './voterActionAzEnglish';
+
+export {
+  decrementIndexSpanish,
+  editResponseSpanish,
+  getQuestionsAzSpanish,
+  incrementIndexSpanish,
+  setResponseSpanish
+} from './voterActionAzSpanish';

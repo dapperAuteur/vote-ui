@@ -6,6 +6,18 @@ export const editResponseSpanish = () => {
   }
 }
 
+export const decrementIndexSpanish = () => {
+  return {
+    type: actionTypes.DECREMENT_INDEX_SPANISH
+  }
+}
+
+export const incrementIndexSpanish = () => {
+  return {
+    type: actionTypes.INCREMENT_INDEX_SPANISH
+  }
+}
+
 export const getQuestionsAzSpanish = () => {
   console.log(getQuestionsAzSpanish);
   return {

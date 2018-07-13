@@ -12,6 +12,18 @@ export const confirmAnswers = () => {
   }
 }
 
+export const decrementIndexEnglish = () => {
+  return {
+    type: actionTypes.DECREMENT_INDEX_ENGLISH
+  }
+}
+
+export const incrementIndexEnglish = () => {
+  return {
+    type: actionTypes.INCREMENT_INDEX_ENGLISH
+  }
+}
+
 export const getQuestion = () => {
   return {
     type: actionTypes.GET_QUESTION

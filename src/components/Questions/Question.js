@@ -9,6 +9,7 @@ class Question extends Component {
   static propTypes = {
     editResponse: PropTypes.func,
     getQuestions: PropTypes.func,
+    index: PropTypes.number,
     language: PropTypes.string,
     question: PropTypes.shape({
       options: PropTypes.array,
@@ -19,6 +20,7 @@ class Question extends Component {
     setResponse: PropTypes.func
   };
   static defaultProps = {
+    index: 0,
     language: "English",
     question: {
       options: [],
@@ -33,6 +35,7 @@ class Question extends Component {
     this.state = {
       editResponse: props.editResponse,
       getQuestions: props.getQuestions,
+      index: ,
       question: {
         options: [],
         questionText: "",
