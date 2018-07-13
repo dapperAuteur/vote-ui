@@ -35,7 +35,7 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 const supportsHistory = 'pushState' in window.history;
 
 const VoterContainer = () => (
-  <Provider>
+  <Provider store={ store }>
     <Router
       forceRefresh={ !supportsHistory }>
       <App />

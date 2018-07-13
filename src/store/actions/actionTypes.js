@@ -1,5 +1,6 @@
 export const CONFIRM_ANSWERS = "CONFIRM_ANSWERS";
 export const GET_QUESTION = "GET_QUESTION";
 export const SET_QUESTION = "SET_QUESTION";
+export const SUBMIT_FORM = "SUBMIT_FORM";
 export const SUBMIT_RESPONSE = "SUBMIT_RESPONSE";
 export const EMAIL_FORM =  "EMAIL_FORM";

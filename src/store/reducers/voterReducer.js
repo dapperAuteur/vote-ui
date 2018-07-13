@@ -36,7 +36,7 @@ const initialState = {
   emailAddress: ""
 };
 
-const voterReducer = (state = initialize, action) => {
+const voterReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.CONFIRM_ANSWERS:
     case actionTypes.GET_QUESTION:
