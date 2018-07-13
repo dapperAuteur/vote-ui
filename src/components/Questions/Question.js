@@ -103,9 +103,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editResponse: (response) => dispatch(actions.editResponse()),
+    editResponse: (response) => dispatch(actions.editResponseSpanish()),
     getQuestions: () => dispatch(actions.getQuestionsAzSpanish()),
-    setResponse: (response) => dispatch(actions.setResponse())
+    setResponse: (response) => dispatch(actions.setResponseSpanish())
   };
 };
 

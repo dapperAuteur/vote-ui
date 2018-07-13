@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const editResponse = () => {
+export const editResponseSpanish = () => {
   return {
     type: actionTypes.EDIT_RESPONSE
   }
@@ -13,7 +13,7 @@ export const getQuestionsAzSpanish = () => {
   }
 }
 
-export const setResponse = () => {
+export const setResponseSpanish = () => {
   return {
     type: actionTypes.SET_RESPONSE
   }

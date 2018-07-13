@@ -1,14 +1,19 @@
-export {
-  confirmAnswers,
-  getQuestion,
-  setQuestion,
-  submitForm,
-  submitResponse,
-  emailForm
-} from './voterActions';
+// export {
+//   confirmAnswers,
+//   getQuestion,
+//   setQuestion,
+//   submitForm,
+//   submitResponse,
+//   emailForm
+// } from './voterActions';
 
 export {
-  editResponse,
+  editResponseSpanish,
   getQuestionsAzSpanish,
-  setResponse
+  setResponseSpanish
 } from './voterActionAzSpanish';
+export {
+  editResponseEnglish,
+  getQuestionsAzEnglish,
+  setResponseEnglish
+} from './voterActionAzEnglish';
