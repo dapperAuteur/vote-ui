@@ -12,17 +12,17 @@ class Question extends Component {
     language: PropTypes.string,
     question: PropTypes.shape({
       options: PropTypes.array,
-      question: PropTypes.string,
-      questionNumber: "",
+      questionText: PropTypes.string,
+      questionNumber: PropTypes.string,
       responseText: PropTypes.string,
-      setResponse: PropTypes.func
-    })
+    }),
+    setResponse: PropTypes.func
   };
   static defaultProps = {
     language: "English",
     question: {
       options: [],
-      question: "",
+      questionText: "",
       questionNumber: "",
       responseText: ""
     }
@@ -35,7 +35,7 @@ class Question extends Component {
       getQuestions: props.getQuestions,
       question: {
         options: [],
-        question: "",
+        questionText: "",
         questionNumber: "",
         responseText: ""
       },
@@ -76,11 +76,28 @@ class Question extends Component {
     // if or switch statement for edit vs new response
   };
 
+  render() {
+    const {
+      question
+    } = { ...this.state };
+    const {
+      questionNumber,
+      questionText,
+      responseText
+    } = { ...question };
+    return (
+      <div>
+        <h2>Form</h2>
+      </div>
+    )
+  }
+
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    questions: questions.voterReducerAzSpanish.questions
+    questions: state.voterReducerAzSpanish.questions
   };
 };
 

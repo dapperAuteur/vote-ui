@@ -14,6 +14,12 @@ class App extends Component {
       <div className="App">
         <Main />
         <h2>Earl</h2>
+        <Link
+          to={{
+            pathname: '/questions'
+          }}>
+          AZ Voter Registration Spanish
+        </Link>
       </div>
     );
   }
