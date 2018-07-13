@@ -8,9 +8,12 @@ import './Forms.css';
 class Question extends Component {
   static propTypes = {
     editResponse: PropTypes.func,
+    decrementIndexSpanish: PropTypes.func,
+    incrementIndexSpanish: PropTypes.func,
     getQuestions: PropTypes.func,
-    index: PropTypes.number,
+    i: PropTypes.number,
     language: PropTypes.string,
+    pathname: PropTypes.string,
     question: PropTypes.shape({
       options: PropTypes.array,
       questionText: PropTypes.string,
@@ -20,8 +23,9 @@ class Question extends Component {
     setResponse: PropTypes.func
   };
   static defaultProps = {
-    index: 0,
+    i: 0,
     language: "English",
+    pathname: "",
     question: {
       options: [],
       questionText: "",
@@ -33,9 +37,12 @@ class Question extends Component {
     super(props);
     console.log(props);
     this.state = {
+      decrementIndexSpanish: props.decrementIndexSpanish,
+      incrementIndexSpanish: props.incrementIndexSpanish,
       editResponse: props.editResponse,
       getQuestions: props.getQuestions,
-      index: ,
+      i: props.i,
+      pathname: props.location.pathname,
       question: {
         options: [],
         questionText: "",
@@ -44,12 +51,14 @@ class Question extends Component {
       },
       setResponse: props.setResponse
     };
+    console.log(this.state);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
   componentWillMount() {
     this.props.getQuestions();
+    this.state.question = this.props.questions[this.state.index];
   }
 
   handleChange(e) {
@@ -60,11 +69,13 @@ class Question extends Component {
     e.preventDefault();
 
     let {
+      incrementIndexSpanish,
       questionNumber,
       responseText
     } = { ...this.state.question };
     let {
       editResponse,
+      pathname,
       setResponse
     } = { ...this.state };
 
@@ -74,13 +85,16 @@ class Question extends Component {
     };
     // create new object name dynamically and save object in localStorage
     console.log(response);
+    // if or switch statement for edit vs new response
+    incrementIndexSpanish();
     setResponse(response);
     editResponse(response);
-    // if or switch statement for edit vs new response
+
   };
 
   render() {
     const {
+      pathname,
       question
     } = { ...this.state };
     const {
@@ -90,7 +104,58 @@ class Question extends Component {
     } = { ...question };
     return (
       <div>
-        <h2>Form</h2>
+        <form onSubmit={ this.handleSubmit } className="theForm">
+          <h3 className="questions">{ questionNumber}: { questionText }</h3>
+          <div className="choices">
+            <label
+              htmlFor='yes'>
+              Sí
+            </label>
+            <input
+              id='Sí'
+              key='Sí'
+              className='form-control'
+              name='responseText'
+              type="radio"
+              value="Sí"
+              onChange={ this.handleChange } />
+            <label
+              htmlFor='no'>
+              No
+            </label>
+            <input
+              id='No'
+              key='No'
+              className='form-control'
+              name='responseText'
+              type="radio"
+              value="No"
+              onChange={ this.handleChange } />
+          </div>
+          { pathname.slice(-4) === "edit" ?
+            <button
+              disabled={ responseText === "" }
+              className="btn btn-default"
+              type='submit'>
+                Entregar
+            </button> :
+            <div className="buttons">
+              <Link
+                className="btn btn-warning"
+                to={{
+                  pathname: '/'
+                }}>
+                  Retroceder
+                </Link>
+              <button
+                disabled={ responseText === "" }
+                type='submit'
+                className='btn btn-default'>
+                Siguiente
+              </button>
+            </div>
+          }
+        </form>
       </div>
     )
   }
@@ -100,12 +165,15 @@ class Question extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
+    i: state.voterReducerAzSpanish.i,
     questions: state.voterReducerAzSpanish.questions
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    decrementIndexSpanish: () => dispatch(actions.decrementIndexSpanish()),
+    incrementIndexSpanish: () => dispatch(actions.incrementIndexSpanish()),
     editResponse: (response) => dispatch(actions.editResponseSpanish()),
     getQuestions: () => dispatch(actions.getQuestionsAzSpanish()),
     setResponse: (response) => dispatch(actions.setResponseSpanish())
