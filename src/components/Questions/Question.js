@@ -57,10 +57,12 @@ class Question extends Component {
   };
 
   componentWillMount() {
+    console.log("obj");
     this.props.getQuestions();
     this.setState({
-      question: this.props.questions[this.state.index]
+      question: this.props.questions[this.state.i]
     });
+    console.log(this.props.questions[this.props.i]);
   }
 
   handleChange(e) {

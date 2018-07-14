@@ -7,7 +7,7 @@ const initialState = {
     {
       q1a: {
         questionText: "Lista de Votación Temprana Permanente - Boleta Electoral Temprana (vea las instrucciones arriba)",
-        text1: "SÍ. Yo quiero recibir automáticamente una boleta electoral temprana para cada elección a la cual sea elegible.",
+        text1: "Sí. Yo quiero recibir automáticamente una boleta electoral temprana para cada elección a la cual sea elegible.",
         responseTextLocation: {
           xLocation: "",
           yLocation: ""
