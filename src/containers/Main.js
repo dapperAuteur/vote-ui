@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-import Question from './../components/Questions/Question';
+import QuestionB from './../components/Questions/QuestionB';
 import TermsOfConditions from './../components/staticComponents/TermsOfConditions';
 import ThankYou from './../components/staticComponents/ThankYou';
 import Vision from './../components/staticComponents/Vision';
@@ -8,11 +8,11 @@ import Vision from './../components/staticComponents/Vision';
 const routes = [
   {
     path: '/questions/:questionNumber',
-    component: Question
+    component: QuestionB
   },
   {
     path: '/questions',
-    component: Question
+    component: QuestionB
   },
   {
     path: '/thank-you',

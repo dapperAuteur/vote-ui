@@ -14,24 +14,14 @@ class Question extends Component {
     i: PropTypes.number,
     language: PropTypes.string,
     pathname: PropTypes.string,
-    question: PropTypes.shape({
-      options: PropTypes.array,
-      questionText: PropTypes.string,
-      questionNumber: PropTypes.string,
-      responseText: PropTypes.string,
-    }),
+    question: PropTypes.object,
     setResponse: PropTypes.func
   };
   static defaultProps = {
     i: 0,
     language: "English",
     pathname: "",
-    question: {
-      options: [],
-      questionText: "",
-      questionNumber: "",
-      responseText: ""
-    }
+    question: {}
   };
   constructor(props) {
     super(props);
@@ -47,12 +37,7 @@ class Question extends Component {
       getQuestions: props.getQuestions,
       i: props.i,
       pathname: props.location.pathname,
-      question: {
-        options: question.options,
-        questionText: question.questionText,
-        questionNumber: question.questionNumber,
-        responseText: question.responseText
-      },
+      question,
       questions: props.questions,
       setResponse: props.setResponse
     };
@@ -63,6 +48,10 @@ class Question extends Component {
 
   componentWillMount() {
     this.props.getQuestions();
+    let options;
+    if (this.props.questions[this.props.i].hasOwnProperty('options')) {
+      console.log("obj");
+    }
     // this.setState({
     //   question: this.props.questions[this.state.i]
     // });
@@ -110,7 +99,9 @@ class Question extends Component {
       pathname,
       question
     } = { ...this.state };
+    console.log(question);
     const {
+      options,
       questionNumber,
       questionText,
       responseText
@@ -119,32 +110,42 @@ class Question extends Component {
       <div>
         <form onSubmit={ this.handleSubmit } className="theForm">
           <h3 className="questions">{ questionNumber}: { questionText }</h3>
-          <div className="choices">
-            <label
-              htmlFor='yes'>
-              Sí
-            </label>
+          {
+            question.hasOwnProperty("options") ?
+            <div>
+              <label
+                htmlFor='options'>
+                Elige
+              </label>
+              <select
+                id='options'
+                key='responseText'
+                name='responseText'
+                value={ responseText }
+                onChange={ this.handleChange }>
+
+                  {
+                    options.map(o => (
+                      <option
+                        key={ o }
+                        value={ o }>
+                        { o }
+                      </option>
+                    ))
+                  }
+              </select>
+            </div> :
             <input
-              id='Sí'
-              key='Sí'
-              className='form-control'
+              id='responseText'
+              key='responseText'
+              type='text'
               name='responseText'
-              type="radio"
-              value="Sí"
-              onChange={ this.handleChange } />
-            <label
-              htmlFor='no'>
-              No
-            </label>
-            <input
-              id='No'
-              key='No'
               className='form-control'
-              name='responseText'
-              type="radio"
-              value="No"
+              autoComplete='off'
+              value={ responseText }
               onChange={ this.handleChange } />
-          </div>
+          }
+
           { pathname.slice(-4) === "edit" ?
             <button
               disabled={ responseText === "" }
@@ -172,7 +173,6 @@ class Question extends Component {
       </div>
     )
   }
-
 };
 
 const mapStateToProps = state => {

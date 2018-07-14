@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <div className="App">
         <Main />
-        <h2>Earl</h2>
         <Link
           to={{
             pathname: '/questions'
