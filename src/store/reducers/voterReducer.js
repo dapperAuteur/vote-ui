@@ -44,7 +44,6 @@ const voterReducer = (state = initialState, action) => {
     case actionTypes.SUBMIT_FORM:
     case actionTypes.SUBMIT_RESPONSE:
     case actionTypes.EMAIL_FORM:
-
     default:
      return state;
   }

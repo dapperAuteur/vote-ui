@@ -58,7 +58,9 @@ class Question extends Component {
 
   componentWillMount() {
     this.props.getQuestions();
-    this.state.question = this.props.questions[this.state.index];
+    this.setState({
+      question: this.props.questions[this.state.index]
+    });
   }
 
   handleChange(e) {
@@ -79,6 +81,8 @@ class Question extends Component {
       setResponse
     } = { ...this.state };
 
+    let endPathname = pathname.slice(-4);
+
     let response = {
       questionNumber,
       responseText
@@ -86,9 +90,12 @@ class Question extends Component {
     // create new object name dynamically and save object in localStorage
     console.log(response);
     // if or switch statement for edit vs new response
-    incrementIndexSpanish();
-    setResponse(response);
-    editResponse(response);
+    if (endPathname === "edit") {
+      editResponse(response);
+    } else {
+      incrementIndexSpanish();
+      setResponse(response);
+    }
 
   };
 
