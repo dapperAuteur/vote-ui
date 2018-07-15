@@ -13,12 +13,8 @@ class Question extends Component {
     getQuestions: PropTypes.func,
     i: PropTypes.number,
     language: PropTypes.string,
-    nextQuestion: PropTypes.func,
     pathname: PropTypes.string,
     question: PropTypes.object,
-    questions: PropTypes.array,
-    response: PropTypes.object,
-    responses: PropTypes.array,
     responseText: PropTypes.string,
     setResponse: PropTypes.func
   };
@@ -27,16 +23,13 @@ class Question extends Component {
     language: "English",
     pathname: "",
     question: {},
-    questions: [],
-    response: {},
-    responses: [],
     responseText: ""
   };
   constructor(props) {
     super(props);
     console.log(props);
-    // console.log(props.questions[this.props.i]);
-    let question = props.question;
+    console.log(props.questions[this.props.i]);
+    let question = props.questions[this.props.i];
     console.log(question);
     // console.log(this.props.questions[this.props.i].q1a.questionText);
     this.state = {
@@ -45,11 +38,8 @@ class Question extends Component {
       editResponse: props.editResponse,
       getQuestions: props.getQuestions,
       i: props.i,
-      nextQuestion: props.nextQuestion,
       pathname: props.location.pathname,
       question,
-      response: {},
-      responses: [],
       responseText: "",
       questions: props.questions,
       setResponse: props.setResponse
@@ -58,10 +48,6 @@ class Question extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
-
-  componentWillMount() {
-    console.log(this.props);
-  }
 
   handleChange(e) {
     console.log(e.target.value);
@@ -72,104 +58,64 @@ class Question extends Component {
     e.preventDefault();
 
     let {
-      editResponse,
-      i,
       incrementIndexSpanish,
-      nextQuestion,
+      questionNumber
+    } = { ...this.state.question };
+    let {
+      editResponse,
       pathname,
-      question,
-      response,
-      responses,
       responseText,
       setResponse
     } = { ...this.state };
 
-    let page = i;
-    console.log(page);
-    console.log(this.props.i);
-
     let endPathname = pathname.slice(-4);
 
-    console.log(response);
-    console.log(responseText);
-    console.log(JSON.parse(responseText));
-    let responseTextObject = JSON.parse(responseText);
-
-    response = {
-      questionNumber: question.questionNumber,
-      responseText: responseTextObject.text,
-      xLocation: responseTextObject.xLocation,
-      yLocation: responseTextObject.yLocation
+    let response = {
+      questionNumber,
+      responseText
     };
     // create new object name dynamically and save object in localStorage
     console.log(response);
-    console.log(endPathname);
     // if or switch statement for edit vs new response
     if (endPathname === "edit") {
       editResponse(response);
     } else {
-      console.log("obj");
       incrementIndexSpanish();
       setResponse(response);
-      nextQuestion();
-      this.props.history.push(`/questions/${page}`);
     }
 
   };
 
   render() {
     const {
-      i,
       pathname,
-      question,
-      responseText
+      question
     } = { ...this.state };
     console.log(question);
     const {
       options,
       questionNumber,
-      questionText
+      questionText,
+      responseText
     } = { ...question };
     return (
       <div>
         <form onSubmit={ this.handleSubmit } className="theForm">
-          <h3 className="questions">{ questionText }</h3>
-          {
-            question.hasOwnProperty("options") ?
-            <div>
-              <label
-                htmlFor='options'>
-                Elige
-              </label>
-              <select
-                id='options'
-                key='responseText'
-                name='responseText'
-                value={ responseText }
-                onChange={ this.handleChange }>
-                  {
-                    options.map((o, i) => (
-                      <option
-                        key={ i }
-                        value={ JSON.stringify(o) }
-                        xlocation={ o.xLocation }
-                        ylocation={ o.yLocation }>
-                        { o.text }
-                      </option>
-                    ))
-                  }
-              </select>
-            </div> :
-            <input
-              id='responseText'
-              key='responseText'
-              type='text'
-              name='responseText'
-              className='form-control'
-              autoComplete='off'
-              value={ responseText }
-              onChange={ this.handleChange } />
-          }
+          <h3 className="questions">{ questionNumber}: { questionText }</h3>
+          <label
+            htmlFor='options'>
+            Elige
+          </label>
+          <input
+            id='responseText'
+            key='responseText'
+            type='text'
+            name='responseText'
+            className='form-control'
+            autoComplete='off'
+            value={ responseText }
+            onChange={ this.handleChange } />
+
 
           { pathname.slice(-4) === "edit" ?
             <button
@@ -203,7 +149,6 @@ class Question extends Component {
 const mapStateToProps = state => {
   return {
     i: state.voterReducerAzSpanish.i,
-    question: state.voterReducerAzSpanish.question,
     questions: state.voterReducerAzSpanish.questions
   };
 };
@@ -214,7 +159,6 @@ const mapDispatchToProps = dispatch => {
     incrementIndexSpanish: () => dispatch(actions.incrementIndexSpanish()),
     editResponse: (response) => dispatch(actions.editResponseSpanish()),
     getQuestions: () => dispatch(actions.getQuestionsAzSpanish()),
-    nextQuestion: () => dispatch(actions.nextQuestion()),
     setResponse: (response) => dispatch(actions.setResponseSpanish())
   };
 };

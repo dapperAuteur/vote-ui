@@ -18,6 +18,18 @@ export const incrementIndexSpanish = () => {
   }
 }
 
+export const nextQuestion = () => {
+  return {
+    type: actionTypes.NEXT_QUESTION
+  }
+}
+
+export const previousQuestion = () => {
+  return {
+    type: actionTypes.PREVIOUS_QUESTION
+  }
+}
+
 export const getQuestionsAzSpanish = () => {
   console.log(getQuestionsAzSpanish);
   return {
@@ -25,8 +37,35 @@ export const getQuestionsAzSpanish = () => {
   }
 }
 
-export const setResponseSpanish = () => {
+export const setQuestionAzSpanish = () => {
   return {
-    type: actionTypes.SET_RESPONSE
+    type: actionTypes.SET_QUESTION_AZ_SPANISH
+  }
+}
+
+export const setResponseSpanish = (response) => {
+  return {
+    type: actionTypes.SET_RESPONSE,
+    response
+  }
+}
+
+export const setResponsesSpanish = (responses) => {
+  return {
+    type: actionTypes.SET_RESPONSES_SPANISH,
+    responses
+  }
+}
+
+export const getResponseSpanish = (i) => {
+  return {
+    type: actionTypes.GET_RESPONSE_SPANISH,
+    i
+  }
+}
+
+export const getResponsesSpanish = () => {
+  return {
+    type: actionTypes.GET_RESPONSES_SPANISH
   }
 }

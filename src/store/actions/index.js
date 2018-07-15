@@ -20,5 +20,11 @@ export {
   editResponseSpanish,
   getQuestionsAzSpanish,
   incrementIndexSpanish,
-  setResponseSpanish
+  nextQuestion,
+  previousQuestion,
+  setResponseSpanish,
+  setQuestionAzSpanish,
+  setResponsesSpanish,
+  getResponseSpanish,
+  getResponsesSpanish
 } from './voterActionAzSpanish';

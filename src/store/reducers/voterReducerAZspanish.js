@@ -3,20 +3,46 @@ import * as actionTypes from './../actions/actionTypes';
 const initialState = {
   i: 0,
   language: "",
+  question: {
+    questionNumber: "q1",
+    questionText: "Lista de Votación Temprana Permanente - Boleta Electoral Temprana (vea las instrucciones arriba)",
+    options: [
+      {
+        text: "Elige Uno"
+      },
+      {
+        text: "Sí. Yo quiero recibir automáticamente una boleta electoral temprana para cada elección a la cual sea elegible.",
+        xLocation: "",
+        yLocation: ""
+      },
+      {
+        text: "NO. NO DESEO recibir automáticamente una boleta electoral temprana. Yo entiendo que al MARCAR ESTA CASILLA, removeré mi nombre de la lista si éste estaba incluido previamente.",
+        xLocation: "",
+        yLocation: ""
+      }
+    ],
+    responseText: ""
+  },
   questions: [
     {
       questionNumber: "q1",
       questionText: "Lista de Votación Temprana Permanente - Boleta Electoral Temprana (vea las instrucciones arriba)",
-      options: ["Sí. Yo quiero recibir automáticamente una boleta electoral temprana para cada elección a la cual sea elegible.", "NO. NO DESEO recibir automáticamente una boleta electoral temprana. Yo entiendo que al MARCAR ESTA CASILLA, removeré mi nombre de la lista si éste estaba incluido previamente."],
-      responseText: "",
-      responseYesTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
-      responseNoTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      }
+      options: [
+        {
+          text: "Elige Uno"
+        },
+        {
+          text: "Sí. Yo quiero recibir automáticamente una boleta electoral temprana para cada elección a la cual sea elegible.",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "NO. NO DESEO recibir automáticamente una boleta electoral temprana. Yo entiendo que al MARCAR ESTA CASILLA, removeré mi nombre de la lista si éste estaba incluido previamente.",
+          xLocation: "",
+          yLocation: ""
+        }
+      ],
+      responseText: ""
     },
     {
       questionNumber: "q2LastName",
@@ -200,7 +226,7 @@ const initialState = {
     },
     {
       questionNumber: "q18",
-      questionText: "LListe cualquier nombre previo (si es aplicable)",
+      questionText: "Liste cualquier nombre previo (si es aplicable)",
       responseText: "",
       responseTextLocation: {
         xLocation: "",
@@ -219,16 +245,22 @@ const initialState = {
     {
       questionNumber: "q20",
       questionText: "Está usted dispuesto/a a trabajar en un lugar de votación el día de la elección?",
-      options: ["Elige Uno","Sí", "No"],
-      responseText: "",
-      responseYesTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
-      responseNoTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      }
+      options: [
+        {
+          text: "Elige Uno"
+        },
+        {
+          text: "Sí",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "No",
+          xLocation: "",
+          yLocation: ""
+        }
+      ],
+      responseText: ""
     },
     {
       questionNumber: "q21",
@@ -241,49 +273,87 @@ const initialState = {
     },
     {
       questionNumber: "q22a",
-      options: ["Elige Uno","Sí", "No"],
+      options: [
+        {
+          text: "Elige Uno"
+        },
+        {
+          text: "Sí",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "No",
+          xLocation: "",
+          yLocation: ""
+        }
+      ],
       questionText: "Es usted ciudadano de los Estados Unidos de América?",
-      responseYesTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
-      responseNoTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
       disclaimer: "Si marcó “No” a cualquiera de estas preguntas, no presente el formulario.",
       responseText: ""
     },
     {
       questionNumber: "q22b",
-      options: ["Elige Uno","Sí", "No"],
+      options: [
+        {
+          text: "Elige Uno"
+        },
+        {
+          text: "Sí",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "No",
+          xLocation: "",
+          yLocation: ""
+        }
+      ],
       questionText: "Cumplirá usted 18 años de edad en ó antes del día de la elección?",
-      responseYesTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
-      responseNoTextLocation: {
-        xLocation: "",
-        yLocation: ""
-      },
       disclaimer: "Si marcó “No” a cualquiera de estas preguntas, no presente el formulario.",
       responseText: ""
     }
-  ]
+  ],
+  response: {},
+  responses: []
 };
 
 const voterReducerAZ = (state = initialState, action) => {
-  let i;
+  let i = state.i;
+  let question = state.question;
+  let questions = state.questions;
+  let response = state.response;
+  let responses = state.responses;
   switch (action.type) {
     case actionTypes.DECREMENT_INDEX_SPANISH:
-      i = state.i--;
+      i = i - 1;
       return Object.assign({}, state, {
         i
       });
     case actionTypes.INCREMENT_INDEX_SPANISH:
-      i = state.i++;
+      console.log("incrementIndexSpanish");
+      console.log(i);
+      i = i + 1;
+      console.log(i);
       return Object.assign({}, state, {
         i
+      });
+    case actionTypes.NEXT_QUESTION:
+      i = i + 1;
+      console.log(question);
+      question = questions[i];
+      console.log(question);
+      return Object.assign({}, state, {
+        i,
+        question
+      });
+    case actionTypes.PREVIOUS_QUESTION:
+      i = i - 1;
+      question = questions[i];
+      console.log(i);
+      return Object.assign({}, state, {
+        i,
+        question
       });
     case actionTypes.EDIT_RESPONSE:
       return state;
@@ -291,6 +361,13 @@ const voterReducerAZ = (state = initialState, action) => {
       console.log(action);
       return state;
     case actionTypes.SET_RESPONSE:
+      response = action.response;
+      responses = state.responses.concat(response);
+      console.log(i);
+      return Object.assign({}, state, {
+        response,
+        responses
+      });
       return state;
 
     default:

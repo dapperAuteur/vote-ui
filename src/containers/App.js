@@ -16,7 +16,7 @@ class App extends Component {
         <Main />
         <Link
           to={{
-            pathname: '/questions'
+            pathname: '/questions/0'
           }}>
           AZ Voter Registration Spanish
         </Link>
