@@ -92,15 +92,30 @@ class Question extends Component {
 
     console.log(response);
     console.log(responseText);
-    console.log(JSON.parse(responseText));
-    let responseTextObject = JSON.parse(responseText);
+    if (question.hasOwnProperty("options")) {
+      console.log(JSON.parse(responseText));
+      let responseTextObject = JSON.parse(responseText);
+      response = {
+        questionNumber: question.questionNumber,
+        responseText: responseTextObject.text,
+        xLocation: responseTextObject.xLocation,
+        yLocation: responseTextObject.yLocation
+      };
+    } else {
+      response = {
+        questionNumber: question.questionNumber,
+        responseText,
+        xLocation: question.responseTextLocation.xLocation,
+        yLocation: question.responseTextLocation.yLocation
+      };
+    }
 
-    response = {
-      questionNumber: question.questionNumber,
-      responseText: responseTextObject.text,
-      xLocation: responseTextObject.xLocation,
-      yLocation: responseTextObject.yLocation
-    };
+    // response = {
+    //   questionNumber: question.questionNumber,
+    //   responseText: responseTextObject.text,
+    //   xLocation: responseTextObject.xLocation,
+    //   yLocation: responseTextObject.yLocation
+    // };
     // create new object name dynamically and save object in localStorage
     console.log(response);
     console.log(endPathname);
@@ -112,8 +127,12 @@ class Question extends Component {
       incrementIndexSpanish();
       setResponse(response);
       nextQuestion();
-      this.props.history.push(`/questions/${page}`);
-    }
+      this.setState({
+        question: this.props.question,
+        responseText: ""
+      });
+    };
+    console.log(this.props.question);
 
   };
 
@@ -201,6 +220,7 @@ class Question extends Component {
 };
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     i: state.voterReducerAzSpanish.i,
     question: state.voterReducerAzSpanish.question,

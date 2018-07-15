@@ -182,7 +182,28 @@ const initialState = {
     {
       questionNumber: "q14",
       questionText: "Especifique Su Partido Preferido",
-      choices: ["Elige Uno","Demócrata", "Republicano/a", "Otro/a"],
+      options: [
+        {
+          text: "Elige Uno",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "Demócrata",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "Republicano/a",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          text: "Otro/a",
+          xLocation: "",
+          yLocation: ""
+        }
+      ],
       responseText: "",
       responseDemocraticTextLocation: {
         xLocation: "",
