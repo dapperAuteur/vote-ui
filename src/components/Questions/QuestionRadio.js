@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import * as actions from './../../store/actions/index';
 import './Forms.css';
 
-class Question extends Component {
+class QuestionRadio extends Component {
   static propTypes = {
     editResponse: PropTypes.func,
     decrementIndexSpanish: PropTypes.func,
@@ -47,7 +47,7 @@ class Question extends Component {
       i: props.i,
       nextQuestion: props.nextQuestion,
       pathname: props.location.pathname,
-      question: props.questions[0],
+      question: props.questions[props.i],
       response: {},
       responses: [],
       responseText: "",
@@ -58,10 +58,6 @@ class Question extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
-
-  // componentWillMount() {
-  //   console.log(this.props);
-  // }
 
   handleChange(e) {
     // console.log(e.target.value);
@@ -84,7 +80,7 @@ class Question extends Component {
       setResponse
     } = { ...this.state };
 
-    let page = i;
+    let page = i + 1;
     console.log(page);
     console.log(this.props.i);
 
@@ -106,8 +102,8 @@ class Question extends Component {
       response = {
         questionNumber: question.questionNumber,
         responseText,
-        xLocation: question.responseTextLocation.xLocation,
-        yLocation: question.responseTextLocation.yLocation
+        xLocation: question.xLocation,
+        yLocation: question.yLocation
       };
     }
 
@@ -126,6 +122,7 @@ class Question extends Component {
       });
     };
     console.log(this.props.question);
+    this.props.history.push(`/questions/${page}`);
 
   };
 
@@ -149,28 +146,24 @@ class Question extends Component {
           {
             question.hasOwnProperty("options") ?
             <div>
-              <label
-                htmlFor='options'>
-                Elige
-              </label>
-              <select
-                id='options'
-                key='responseText'
-                name='responseText'
-                value={ responseText }
-                onChange={ this.handleChange }>
-                  {
-                    options.map((o, i) => (
-                      <option
-                        key={ i }
+                {
+                  options.map((o, i) => (
+                    <div>
+                      <input
+                        id={ o.text }
+                        key={ o.text }
+                        className='form-control'
+                        name='responseText'
+                        type="radio"
                         value={ JSON.stringify(o) }
-                        xlocation={ o.xLocation }
-                        ylocation={ o.yLocation }>
-                        { o.text }
-                      </option>
-                    ))
-                  }
-              </select>
+                        onChange={ this.handleChange } />
+                          <label
+                            htmlFor='options'>
+                            { o.text }
+                          </label>
+                    </div>
+                  ))
+                }
             </div> :
             <input
               id='responseText'
@@ -232,4 +225,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Question);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionRadio);

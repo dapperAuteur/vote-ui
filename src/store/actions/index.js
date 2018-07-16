@@ -7,13 +7,13 @@
 //   emailForm
 // } from './voterActions';
 
-export {
-  decrementIndexEnglish,
-  editResponseEnglish,
-  getQuestionsAzEnglish,
-  incrementIndexEnglish,
-  setResponseEnglish
-} from './voterActionAzEnglish';
+// export {
+//   decrementIndexEnglish,
+//   editResponseEnglish,
+//   getQuestionsAzEnglish,
+//   incrementIndexEnglish,
+//   setResponseEnglish
+// } from './voterActionAzEnglish';
 
 export {
   decrementIndexSpanish,
