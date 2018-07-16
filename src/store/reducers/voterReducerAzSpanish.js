@@ -299,7 +299,6 @@ const voterReducerAzSpanish = (state = initialState, action) => {
         response,
         responses
       });
-      return state;
 
     default:
       return state;

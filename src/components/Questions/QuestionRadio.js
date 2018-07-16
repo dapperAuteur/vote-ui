@@ -8,8 +8,8 @@ import './Forms.css';
 class QuestionRadio extends Component {
   static propTypes = {
     editResponse: PropTypes.func,
-    decrementIndexSpanish: PropTypes.func,
-    incrementIndexSpanish: PropTypes.func,
+    // decrementIndexSpanish: PropTypes.func,
+    // incrementIndexSpanish: PropTypes.func,
     getQuestions: PropTypes.func,
     i: PropTypes.number,
     language: PropTypes.string,
@@ -40,8 +40,8 @@ class QuestionRadio extends Component {
     // console.log(question);
     // console.log(this.props.questions[this.props.i].q1a.questionText);
     this.state = {
-      decrementIndexSpanish: props.decrementIndexSpanish,
-      incrementIndexSpanish: props.incrementIndexSpanish,
+      // decrementIndexSpanish: props.decrementIndexSpanish,
+      // incrementIndexSpanish: props.incrementIndexSpanish,
       editResponse: props.editResponse,
       getQuestions: props.getQuestions,
       i: props.i,
@@ -70,12 +70,12 @@ class QuestionRadio extends Component {
     let {
       editResponse,
       i,
-      incrementIndexSpanish,
+      // incrementIndexSpanish,
       nextQuestion,
       pathname,
       question,
       response,
-      responses,
+      // responses,
       responseText,
       setResponse
     } = this.state;
@@ -128,7 +128,7 @@ class QuestionRadio extends Component {
 
   render() {
     const {
-      i,
+      // i,
       pathname,
       question,
       responseText
@@ -136,7 +136,7 @@ class QuestionRadio extends Component {
     console.log(question);
     const {
       options,
-      questionNumber,
+      // questionNumber,
       questionText
     } = question;
     return (
@@ -216,8 +216,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    decrementIndexSpanish: () => dispatch(actions.decrementIndexSpanish()),
-    incrementIndexSpanish: () => dispatch(actions.incrementIndexSpanish()),
+    // decrementIndexSpanish: () => dispatch(actions.decrementIndexSpanish()),
+    // incrementIndexSpanish: () => dispatch(actions.incrementIndexSpanish()),
     editResponse: (response) => dispatch(actions.editResponseSpanish()),
     getQuestions: () => dispatch(actions.getQuestionsAzSpanish()),
     nextQuestion: () => dispatch(actions.nextQuestion()),
