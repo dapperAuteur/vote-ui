@@ -78,7 +78,7 @@ class QuestionRadio extends Component {
       responses,
       responseText,
       setResponse
-    } = { ...this.state };
+    } = this.state;
 
     let page = i + 1;
     console.log(page);
@@ -132,13 +132,13 @@ class QuestionRadio extends Component {
       pathname,
       question,
       responseText
-    } = { ...this.state };
+    } = this.state;
     console.log(question);
     const {
       options,
       questionNumber,
       questionText
-    } = { ...question };
+    } = question;
     return (
       <div>
         <form onSubmit={ this.handleSubmit } className="theForm">
