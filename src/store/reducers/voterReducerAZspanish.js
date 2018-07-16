@@ -249,7 +249,7 @@ const initialState = {
   responses: []
 };
 
-const voterReducerAZ = (state = initialState, action) => {
+const voterReducerAzSpanish = (state = initialState, action) => {
   let i = state.i;
   let question = state.question;
   let questions = state.questions;
@@ -306,4 +306,4 @@ const voterReducerAZ = (state = initialState, action) => {
   }
 }
 
-export default voterReducerAZ;
+export default voterReducerAzSpanish;
