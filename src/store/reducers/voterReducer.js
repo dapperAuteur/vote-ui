@@ -29,6 +29,20 @@ const initialState = {
         responseText: ""
       },
       {
+        questionNumber: "q4DOB",
+        questionTextEsp: "Fecha de nacimiento. Por favor usa números.",
+        questionTextEng: "Date of Birth. Please use numbers.",
+        options: [
+          {
+            months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+          }
+        ],
+        responseText: "",
+        xLocation: "",
+        yLocation: "",
+        page: ""
+      },
+      {
         questionNumber: "qual2",
         questionTextEsp: "¿Habrá cumplido los 18 años de edad para el día de las elecciones?",
         questionTextEng: "Will you be 18 years old on or before election day?",
@@ -272,20 +286,6 @@ const initialState = {
     {
       questionNumber: "q7",
       questionText: "Dirección en la cual usted recibe su correspondencia, si no se entrega la correspondencia a su casa",
-      responseText: "",
-      xLocation: "",
-      yLocation: "",
-      page: ""
-    },
-    {
-      questionNumber: "q4DOB",
-      questionTextEsp: "Fecha de nacimiento. Por favor usa números.",
-      questionTextEng: "Date of Birth. Please use numbers.",
-      options: [
-        {
-          months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        }
-      ],
       responseText: "",
       xLocation: "",
       yLocation: "",
