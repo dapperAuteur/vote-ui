@@ -617,4 +617,4 @@ const voterReducerAzSpanish = (state = initialState, action) => {
   }
 }
 
-export default voterReducerAzSpanish;
+export default voterReducerSpanish;
