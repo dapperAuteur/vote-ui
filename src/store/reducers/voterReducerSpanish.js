@@ -3,6 +3,7 @@ import * as actionTypes from './../actions/actionTypes';
 const initialState = {
   i: 0,
   language: "",
+  languages: ["English", "Español"],
   question: {},
   questions: [
     {

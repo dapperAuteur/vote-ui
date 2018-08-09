@@ -13,6 +13,7 @@ class QuestionRadio extends Component {
     getQuestions: PropTypes.func,
     i: PropTypes.number,
     language: PropTypes.string,
+    languages: PropTypes.array,
     nextQuestion: PropTypes.func,
     pathname: PropTypes.string,
     question: PropTypes.object,
@@ -25,6 +26,7 @@ class QuestionRadio extends Component {
   static defaultProps = {
     i: 0,
     language: "English",
+    languages: ["English", "Español"],
     pathname: "",
     question: {},
     questions: [],
@@ -45,13 +47,15 @@ class QuestionRadio extends Component {
       editResponse: props.editResponse,
       getQuestions: props.getQuestions,
       i: props.i,
+      language: props.language,
+      languages: props.languages,
       nextQuestion: props.nextQuestion,
       pathname: props.location.pathname,
       question: props.questions[props.i],
+      questions: props.questions,
       response: {},
       responses: [],
       responseText: "",
-      questions: props.questions,
       setResponse: props.setResponse
     };
     console.log(this.state);
@@ -71,11 +75,12 @@ class QuestionRadio extends Component {
       editResponse,
       i,
       // incrementIndexSpanish,
+      language,
       nextQuestion,
       pathname,
       question,
       response,
-      // responses,
+      responses,
       responseText,
       setResponse
     } = this.state;
@@ -209,8 +214,12 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     i: state.voterReducerAzSpanish.i,
-    question: state.voterReducerAzSpanish.question,
-    questions: state.voterReducerAzSpanish.questions
+    language: state.voterReducerSpanish.language,
+    languages: state.voterReducerSpanish.languages,
+    question: state.voterReducerSpanish.question,
+    questions: state.voterReducerSpanish.questions,
+    response: state.voterReducerSpanish.response,
+    responses: state.voterReducerSpanish.responses
   };
 };
 
