@@ -310,28 +310,99 @@ const initialState = {
       yLocation: ""
     },
     {
-      questionNumber: "q13",
-      questionText: "Estado o País de Nacimiento",
+      questionNumber: "qA",
+      questionTextEsp: "Si esta solicitud es para un cambio de nombre, ¿cómo se llamaba antes de cambiar de nombre?",
+      questionTextEng: "If this application is for a change of name, what was your name before you changed it?",
+      responseText: "",
+    },
+    {
+      questionNumber: "qANameChange",
+      questionTextEsp: "Marque uno",
+      questionTextEng: "Choose one",
+      options: [
+        {
+          textEsp: "Sr.",
+          textEng: "Mr.",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+            textEsp: "Sra.",
+            textEng: "Mrs.",
+            xLocation: "",
+            yLocation: ""
+        },
+        {
+          textEsp: "Sta.",
+          textEng: "Miss.",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+            textEsp: "Sra.",
+            textEng: "Ms.",
+            xLocation: "",
+            yLocation: ""
+        }
+      ],
+      responseText: ""
+    },
+    {
+      questionNumber: "qALastName",
+      questionTextEsp: "Apellido",
+      questionTextEng: "Last Name",
       responseText: "",
       xLocation: "",
       yLocation: ""
     },
     {
-      questionNumber: "q14",
-      questionText: "Especifique Su Partido Preferido",
+      questionNumber: "qAFirstName",
+      questionTextEsp: "Primer Nombre",
+      questionTextEng: "First Name",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
+    },
+    {
+      questionNumber: "qAMiddleName",
+      questionTextEsp: "Segundo Nombre",
+      questionTextEng: "Middle Name(s)",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
+    },
+    {
+      questionNumber: "qANameSuffix",
+      questionTextEsp: "Marque uno",
+      questionTextEng: "Choose one",
       options: [
         {
-          text: "Demócrata",
+          textEsp: "Jr.",
+          textEng: "Jr.",
           xLocation: "",
           yLocation: ""
         },
         {
-          text: "Republicano/a",
+          textEsp: "Sr.",
+          textEng: "Sr.",
           xLocation: "",
           yLocation: ""
         },
         {
-          text: "Otro/a",
+          textEsp: "II",
+          textEng: "II",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          textEsp: "III",
+          textEng: "III",
+          xLocation: "",
+          yLocation: ""
+        },
+        {
+          textEsp: "IV",
+          textEng: "IV",
           xLocation: "",
           yLocation: ""
         }
@@ -339,100 +410,67 @@ const initialState = {
       responseText: ""
     },
     {
-      questionNumber: "q15",
-      questionText: "Número de Teléfono",
+      questionNumber: "qB",
+      questionTextEsp: "Si esta solicitud es para un cambio de nombre, ¿cómo se llamaba antes de cambiar de nombre?",
+      questionTextEng: "If this application is for a change of name, what was your name before you changed it?",
       responseText: "",
-      xLocation: "",
-      yLocation: ""
     },
     {
-      questionNumber: "q16",
-      questionText: "Ocupación",
-      responseText: "",
-      xLocation: "",
-      yLocation: ""
-    },
-    {
-      questionNumber: "q17",
-      questionText: "Si usted se registró para votar en otro domicilio, liste el domicilio previo incluyendo el condado y el estado",
-      responseText: "",
-      xLocation: "",
-      yLocation: ""
-    },
-    {
-      questionNumber: "q18",
-      questionText: "Liste cualquier nombre previo (si es aplicable)",
-      responseText: "",
-      xLocation: "",
-      yLocation: ""
-    },
-    {
-      questionNumber: "q19",
-      questionText: "Nombre de su padre o nombre de soltera de su madre",
-      responseText: "",
-      xLocation: "",
-      yLocation: ""
-    },
-    {
-      questionNumber: "q20",
-      questionText: "Está usted dispuesto/a a trabajar en un lugar de votación el día de la elección?",
+      questionNumber: "qBAddress",
+      questionHeadingEsp: "Si estuvo inscrito antes, pero esta es la primera vez que se está inscribiendo con la dirección en la Casilla 2, ¿cuál era la dirección con que estaba inscrito antes?",
+      questionHeadingEng: "Were registered before but this is the first time you are registering from the address in Box 2?",
+      questionTextEsp: "¿Inscrito antes, pero esta es la primera vez que se está inscribiendo con la dirección en la Casilla 2, ¿cuál era la dirección con que estaba inscrito antes?",
+      questionTextEng: "If you were registered before but this is the first time you are registering from the address in Box 2, what was your address where you were registered before?",
       options: [
         {
-          text: "Sí",
+          textEsp: "Sí.",
+          textEng: "Yes.",
           xLocation: "",
           yLocation: ""
         },
         {
-          text: "No",
+          textEsp: "NO.",
+          textEng: "NO.",
           xLocation: "",
           yLocation: ""
         }
       ],
-      responseText: ""
-    },
-    {
-      questionNumber: "q21",
-      questionText: "Domicilio de correo electrónico",
       responseText: "",
       xLocation: "",
       yLocation: ""
     },
     {
-      questionNumber: "q22a",
-      options: [
-        {
-          text: "Sí",
-          xLocation: "",
-          yLocation: ""
-        },
-        {
-          text: "No",
-          xLocation: "",
-          yLocation: ""
-        }
-      ],
-      questionText: "Es usted ciudadano de los Estados Unidos de América?",
-      disclaimer: "Si marcó “No” a cualquiera de estas preguntas, no presente el formulario.",
-      responseText: ""
+      questionNumber: "qBApt",
+      questionTextEsp: "No.dedepto.olote",
+      questionTextEng: "Apt. or Lot #",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
     },
     {
-      questionNumber: "q22b",
-      options: [
-        {
-          text: "Sí",
-          xLocation: "",
-          yLocation: ""
-        },
-        {
-          text: "No",
-          xLocation: "",
-          yLocation: ""
-        }
-      ],
-      questionText: "Cumplirá usted 18 años de edad en ó antes del día de la elección?",
-      disclaimer: "Si marcó “No” a cualquiera de estas preguntas, no presente el formulario.",
-      responseText: ""
-    }
+      questionNumber: "qBCity",
+      questionTextEsp: "Ciudad/Localidad",
+      questionTextEng: "City/Town",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
+    },
+    {
+      questionNumber: "qBState",
+      questionTextEsp: "Estado",
+      questionTextEng: "State",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
+    },
+    {
+      questionNumber: "qBZip",
+      questionTextEsp: "Código postal",
+      questionTextEng: "Zip Code",
+      responseText: "",
+      xLocation: "",
+      yLocation: ""
+    },
   ],
   response: {},
   responses: []
