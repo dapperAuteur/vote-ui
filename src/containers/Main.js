@@ -4,8 +4,13 @@ import QuestionRadio from './../components/Questions/QuestionRadio';
 import TermsOfConditions from './../components/staticComponents/TermsOfConditions';
 import ThankYou from './../components/staticComponents/ThankYou';
 import Vision from './../components/staticComponents/Vision';
+import Register from '../components/Register';
 
 const routes = [
+  {
+    path: '/qualify',
+    component: Register
+  },
   {
     path: '/questions/:questionNumber',
     component: QuestionRadio

@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from './../store/actions/index';
+import { Link, withRouter } from 'react-router-dom';
 import Main from './Main';
 // import Messages from './../components/Messages/Messages';
 import './App.css';
 
 class App extends Component {
-  // constructor(props){
-  //   super(props);
-  // }
   render() {
+    console.log(this.props);
+    let pathname = this.props.location.pathname;
     return (
       <div className="App">
         <Main />
-        <Link
+        {
+          pathname === "/" &&
+          <Link
           to={{
-            pathname: '/questions/0'
+            pathname: '/qualify'
           }}>
-          AZ Voter Registration Spanish
+          Register To Vote
         </Link>
+        }
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getQuestions: () => dispatch(actions.getQuestionsAzSpanish())
-  };
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(App);
