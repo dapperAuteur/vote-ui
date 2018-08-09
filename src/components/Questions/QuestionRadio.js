@@ -213,7 +213,7 @@ class QuestionRadio extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    i: state.voterReducerAzSpanish.i,
+    i: state.voterReducerSpanish.i,
     language: state.voterReducerSpanish.language,
     languages: state.voterReducerSpanish.languages,
     question: state.voterReducerSpanish.question,

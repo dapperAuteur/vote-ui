@@ -561,7 +561,7 @@ const initialState = {
   responses: []
 };
 
-const voterReducerAzSpanish = (state = initialState, action) => {
+const voterReducerSpanish = (state = initialState, action) => {
   let i = state.i;
   let question = state.question;
   let questions = state.questions;

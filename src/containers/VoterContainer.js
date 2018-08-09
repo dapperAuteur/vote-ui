@@ -6,14 +6,14 @@ import thunk from 'redux-thunk';
 import ReactGA from 'react-ga';
 // import voterReducer from './../store/reducers/voterReducer';
 // import voterReducerAzEnglish from '../store/reducers/voterReducerAzEnglish';
-import voterReducerAzSpanish from '../store/reducers/voterReducerAzSpanish';
+import voterReducerSpanish from '../store/reducers/voterReducerSpanish';
 
 import App from './App';
 
 const rootReducer = combineReducers({
   // voterReducer,
   // voterReducerAzEnglish,
-  voterReducerAzSpanish
+  voterReducerSpanish
 });
 
 const logger = store => {
