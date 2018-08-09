@@ -14,13 +14,15 @@ const initialState = {
             textEsp: "Sí.",
             textEng: "Yes.",
             xLocation: "",
-            yLocation: ""
+            yLocation: "",
+            page: ""
           },
           {
             textEsp: "NO.",
             textEng: "NO.",
             xLocation: "",
-            yLocation: ""
+            yLocation: "",
+            page: ""
           }
         ],
         responseText: ""
@@ -34,13 +36,15 @@ const initialState = {
             textEsp: "Sí.",
             textEng: "Yes.",
             xLocation: "",
-            yLocation: ""
+            yLocation: "",
+            page: ""
           },
           {
             textEsp: "NO.",
             textEng: "NO.",
             xLocation: "",
-            yLocation: ""
+            yLocation: "",
+            page: ""
           }
         ],
         responseText: ""
@@ -54,26 +58,30 @@ const initialState = {
           textEsp: "Sr.",
           textEng: "Mr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
-            textEsp: "Sra.",
-            textEng: "Mrs.",
-            xLocation: "",
-            yLocation: ""
+          textEsp: "Sra.",
+          textEng: "Mrs.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         },
         {
-            textEsp: "Sta.",
-            textEng: "Miss.",
-            xLocation: "",
-            yLocation: ""
-          },
-          {
-              textEsp: "Sra.",
-              textEng: "Ms.",
-              xLocation: "",
-              yLocation: ""
-          }
+          textEsp: "Sta.",
+          textEng: "Miss.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        },
+        {
+          textEsp: "Sra.",
+          textEng: "Ms.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        }
       ],
       responseText: ""
     },
@@ -83,7 +91,8 @@ const initialState = {
       questionTextEng: "Last Name",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q1FirstName",
@@ -91,7 +100,8 @@ const initialState = {
       questionTextEng: "First Name",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q1MiddleName",
@@ -99,7 +109,8 @@ const initialState = {
       questionTextEng: "Middle Name(s)",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q1NameSuffix",
@@ -110,32 +121,37 @@ const initialState = {
           textEsp: "Jr.",
           textEng: "Jr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "Sr.",
           textEng: "Sr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
-            textEsp: "II",
-            textEng: "II",
-            xLocation: "",
-            yLocation: ""
-          },
-          {
-            textEsp: "III",
-            textEng: "III",
-            xLocation: "",
-            yLocation: ""
-          },
-          {
-            textEsp: "IV",
-            textEng: "IV",
-            xLocation: "",
-            yLocation: ""
-          }
+          textEsp: "II",
+          textEng: "II",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        },
+        {
+          textEsp: "III",
+          textEng: "III",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        },
+        {
+          textEsp: "IV",
+          textEng: "IV",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        }
       ],
       responseText: ""
     },
@@ -145,7 +161,8 @@ const initialState = {
       questionTextEng: "Home Address",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q2Apt",
@@ -153,7 +170,8 @@ const initialState = {
       questionTextEng: "Apt. or Lot #",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q2City",
@@ -161,7 +179,8 @@ const initialState = {
       questionTextEng: "City/Town",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q2State",
@@ -169,7 +188,8 @@ const initialState = {
       questionTextEng: "State",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q2Zip",
@@ -177,7 +197,8 @@ const initialState = {
       questionTextEng: "Zip Code",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q3DifferentMail",
@@ -188,13 +209,15 @@ const initialState = {
           textEsp: "Sí.",
           textEng: "Yes.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "NO.",
           textEng: "NO.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         }
       ],
     },
@@ -204,7 +227,8 @@ const initialState = {
       questionTextEng: "Home Address",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q3AptMail",
@@ -212,7 +236,8 @@ const initialState = {
       questionTextEng: "Apt. or Lot #",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q3CityMail",
@@ -220,7 +245,8 @@ const initialState = {
       questionTextEng: "City/Town",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q3StateMail",
@@ -228,7 +254,8 @@ const initialState = {
       questionTextEng: "State",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q3ZipMail",
@@ -236,14 +263,16 @@ const initialState = {
       questionTextEng: "Zip Code",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q7",
       questionText: "Dirección en la cual usted recibe su correspondencia, si no se entrega la correspondencia a su casa",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q4DOB",
@@ -256,7 +285,8 @@ const initialState = {
       ],
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q5Phone",
@@ -264,7 +294,8 @@ const initialState = {
       questionTextEng: "Telephone Number (optional)",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q6ID",
@@ -272,7 +303,8 @@ const initialState = {
       questionTextEng: "ID Number",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q7Party",
@@ -285,7 +317,8 @@ const initialState = {
       ],
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q8Race",
@@ -299,7 +332,8 @@ const initialState = {
       ],
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "q9Date",
@@ -307,7 +341,8 @@ const initialState = {
       questionTextEng: "Date",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qA",
@@ -324,25 +359,29 @@ const initialState = {
           textEsp: "Sr.",
           textEng: "Mr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
             textEsp: "Sra.",
             textEng: "Mrs.",
             xLocation: "",
-            yLocation: ""
+            yLocation: "",
+            page: ""
         },
         {
           textEsp: "Sta.",
           textEng: "Miss.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
-            textEsp: "Sra.",
-            textEng: "Ms.",
-            xLocation: "",
-            yLocation: ""
+          textEsp: "Sra.",
+          textEng: "Ms.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         }
       ],
       responseText: ""
@@ -353,7 +392,8 @@ const initialState = {
       questionTextEng: "Last Name",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qAFirstName",
@@ -361,7 +401,8 @@ const initialState = {
       questionTextEng: "First Name",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qAMiddleName",
@@ -369,7 +410,8 @@ const initialState = {
       questionTextEng: "Middle Name(s)",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qANameSuffix",
@@ -380,31 +422,36 @@ const initialState = {
           textEsp: "Jr.",
           textEng: "Jr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "Sr.",
           textEng: "Sr.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "II",
           textEng: "II",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "III",
           textEng: "III",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "IV",
           textEng: "IV",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         }
       ],
       responseText: ""
@@ -426,18 +473,21 @@ const initialState = {
           textEsp: "Sí.",
           textEng: "Yes.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         },
         {
           textEsp: "NO.",
           textEng: "NO.",
           xLocation: "",
-          yLocation: ""
+          yLocation: "",
+          page: ""
         }
       ],
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qBApt",
@@ -445,7 +495,8 @@ const initialState = {
       questionTextEng: "Apt. or Lot #",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qBCity",
@@ -453,7 +504,8 @@ const initialState = {
       questionTextEng: "City/Town",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qBState",
@@ -461,7 +513,8 @@ const initialState = {
       questionTextEng: "State",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
     },
     {
       questionNumber: "qBZip",
@@ -469,7 +522,35 @@ const initialState = {
       questionTextEng: "Zip Code",
       responseText: "",
       xLocation: "",
-      yLocation: ""
+      yLocation: "",
+      page: ""
+    },
+    {
+      questionNumber: "qBAddress",
+      questionHeadingEsp: "Si vive en una zona rural, pero no tiene un número de calle, o si no tiene dirección, muestre en el mapa dónde vive.",
+      questionHeadingEng: "If you live in a rural area but do not have a street number, or if you have no address, please show on the map where you live.",
+      questionTextEsp: "¿Vives en un área rural, pero no tienes un número de calle o no tienes una dirección?",
+      questionTextEng: "Do you live in a rural area but do not have a street number, or if you have no address?",
+      options: [
+        {
+          textEsp: "Sí.",
+          textEng: "Yes.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        },
+        {
+          textEsp: "NO.",
+          textEng: "NO.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
+        }
+      ],
+      responseText: "",
+      xLocation: "",
+      yLocation: "",
+      page: ""
     },
   ],
   response: {},
