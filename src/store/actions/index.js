@@ -7,6 +7,7 @@ export {
   previousQuestion,
   setResponse,
   setQuestion,
+  setQuestions,
   setResponses,
   getResponse,
   getResponses

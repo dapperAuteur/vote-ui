@@ -18,6 +18,8 @@ class QuestionRadio extends Component {
     pathname: PropTypes.string,
     question: PropTypes.object,
     questions: PropTypes.array,
+    questionsEng: PropTypes.array,
+    questionsEsp: PropTypes.array,
     response: PropTypes.object,
     responses: PropTypes.array,
     responseText: PropTypes.string,
@@ -30,6 +32,8 @@ class QuestionRadio extends Component {
     pathname: "",
     question: {},
     questions: [],
+    questionsEng: [],
+    questionsEsp: [],
     response: {},
     responses: [],
     responseText: ""
@@ -53,6 +57,8 @@ class QuestionRadio extends Component {
       pathname: props.location.pathname,
       question: props.questions[props.i],
       questions: props.questions,
+      questionsEng: props.questionsEng,
+      questionsEsp: props.questionsEsp,
       response: {},
       responses: [],
       responseText: "",
@@ -62,6 +68,16 @@ class QuestionRadio extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   };
+
+  componentWillMount() {
+    console.log(this.props);
+    let pathname = this.props.location.pathname;
+    if (pathname.slice(-2) === "es") {
+      this.props.questions = this.props.questionsEsp;
+    } else {
+      this.props.questions = this.props.questionsEng;
+    }
+  }
 
   handleChange(e) {
     // console.log(e.target.value);
@@ -140,7 +156,7 @@ class QuestionRadio extends Component {
     } = this.state;
     console.log(question);
     const {
-      options,
+      // options,
       // questionNumber,
       questionText,
       questionTextEng,
@@ -222,6 +238,8 @@ const mapStateToProps = state => {
     languages: state.voterReducer.languages,
     question: state.voterReducer.question,
     questions: state.voterReducer.questions,
+    questionsEng: state.voterReducer.questionsEng,
+    questionsEsp: state.voterReducer.questionsEsp,
     response: state.voterReducer.response,
     responses: state.voterReducer.responses
   };

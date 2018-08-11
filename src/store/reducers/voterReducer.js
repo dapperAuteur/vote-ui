@@ -5,6 +5,7 @@ const initialState = {
   language: "",
   languages: ["English", "Español"],
   question: {},
+  questions: [],
   questionsEng: [
     {
         questionNumber: "qual1",
@@ -403,15 +404,21 @@ const initialState = {
       options: [
         {
           textEng: "Yes.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         },
         {
           textEng: "NO.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         }
       ],
       responseText: "",
     },
     {
-      questionNumber: "qBAddress",
+      questionNumber: "qBDiffAddress",
       questionHeadingEng: "Were registered before but this is the first time you are registering from the address in Box 2?",
       questionTextEng: "If you were registered before but this is the first time you are registering from the address in Box 2, what was your address where you were registered before?",
       options: [
@@ -428,6 +435,14 @@ const initialState = {
           page: ""
         }
       ],
+      responseText: "",
+      xLocation: "",
+      yLocation: "",
+      page: ""
+    },
+    {
+      questionNumber: "qBDiffStreet",
+      questionTextEsp: "Street (or route and box number)",
       responseText: "",
       xLocation: "",
       yLocation: "",
@@ -467,18 +482,27 @@ const initialState = {
       page: ""
     },
     {
-      questionNumber: "qBAddress",
+      questionNumber: "qBRuralAddress",
       questionHeadingEng: "If you live in a rural area but do not have a street number, or if you have no address, please show on the map where you live.",
       questionTextEng: "Do you live in a rural area but do not have a street number, or if you have no address?",
       options: [
         {
           textEng: "Yes.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         },
         {
           textEng: "NO.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         }
       ],
-      responseText: ""
+      responseText: "",
+      xLocation: "",
+      yLocation: "",
+      page: ""
     },
   ],
   questionsEsp: [
@@ -671,10 +695,16 @@ const initialState = {
       questionTextEsp: "Dirección donde recibe su correo, si es diferente a la de más arriba",
       options: [
         {
-          textEsp: "Sí."
+          textEsp: "Sí.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         },
         {
-          textEsp: "NO."
+          textEsp: "NO.",
+          xLocation: "",
+          yLocation: "",
+          page: ""
         }
       ],
     },
@@ -887,7 +917,7 @@ const initialState = {
       responseText: "",
     },
     {
-      questionNumber: "qBAddress",
+      questionNumber: "qBDiffAddress",
       questionHeadingEsp: "Si estuvo inscrito antes, pero esta es la primera vez que se está inscribiendo con la dirección en la Casilla 2, ¿cuál era la dirección con que estaba inscrito antes?",
       questionTextEsp: "¿Inscrito antes, pero esta es la primera vez que se está inscribiendo con la dirección en la Casilla 2, ¿cuál era la dirección con que estaba inscrito antes?",
       options: [

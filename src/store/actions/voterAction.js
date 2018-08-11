@@ -8,13 +8,13 @@ export const editResponse = () => {
 
 export const decrementIndex = () => {
   return {
-    type: actionTypes.DECREMENT_INDEX_SPANISH
+    type: actionTypes.DECREMENT_INDEX
   }
 }
 
 export const incrementIndex = () => {
   return {
-    type: actionTypes.INCREMENT_INDEX_SPANISH
+    type: actionTypes.INCREMENT_INDEX
   }
 }
 
@@ -33,14 +33,21 @@ export const previousQuestion = () => {
 export const getQuestions = () => {
   console.log(getQuestions);
   return {
-    type: actionTypes.GET_QUESTIONS_AZ_SPANISH
+    type: actionTypes.GET_QUESTIONS
   }
 }
 
 export const setQuestion = () => {
   return {
-    type: actionTypes.SET_QUESTION_AZ_SPANISH
+    type: actionTypes.SET_QUESTION
   }
+}
+
+export const setQuestions = (questions) => {
+    return {
+        type: actionTypes.SET_QUESTIONS,
+        questions
+    }
 }
 
 export const setResponse = (response) => {
@@ -53,20 +60,20 @@ export const setResponse = (response) => {
 
 export const setResponses = (responses) => {
   return {
-    type: actionTypes.SET_RESPONSES_SPANISH,
+    type: actionTypes.SET_RESPONSES,
     responses
   }
 }
 
 export const getResponse = (i) => {
   return {
-    type: actionTypes.GET_RESPONSE_SPANISH,
+    type: actionTypes.GET_RESPONSE,
     i
   }
 }
 
 export const getResponses = () => {
   return {
-    type: actionTypes.GET_RESPONSES_SPANISH
+    type: actionTypes.GET_RESPONSES
   }
 }
