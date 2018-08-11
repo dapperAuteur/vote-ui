@@ -1013,45 +1013,54 @@ const voterReducer = (state = initialState, action) => {
   let language = state.language;
   let languages = state.languages;
   let question = state.question;
-  let questions = state.questions;
   let response = state.response;
   let responses = state.responses;
   switch (action.type) {
-    case actionTypes.DECREMENT_INDEX_SPANISH:
-      i = i - 1;
-      return Object.assign({}, state, {
-        i
-      });
-    case actionTypes.INCREMENT_INDEX_SPANISH:
-      console.log("incrementIndexSpanish");
-      console.log(i);
-      i = i + 1;
-      console.log(i);
-      return Object.assign({}, state, {
-        i
-      });
-    case actionTypes.NEXT_QUESTION:
-      i = i + 1;
-      console.log(question);
-      question = questions[i];
-      console.log(question);
-      return Object.assign({}, state, {
-        i,
-        question
-      });
-    case actionTypes.PREVIOUS_QUESTION:
-      i = i - 1;
-      question = questions[i];
-      console.log(i);
-      return Object.assign({}, state, {
-        i,
-        question
-      });
+    // case actionTypes.DECREMENT_INDEX_SPANISH:
+    //   i = i - 1;
+    //   return Object.assign({}, state, {
+    //     i
+    //   });
+    // case actionTypes.INCREMENT_INDEX_SPANISH:
+    //   console.log("incrementIndexSpanish");
+    //   console.log(i);
+    //   i = i + 1;
+    //   console.log(i);
+    //   return Object.assign({}, state, {
+    //     i
+    //   });
+    // case actionTypes.NEXT_QUESTION:
+    //   i = i + 1;
+    //   console.log(question);
+    //   question = questions[i];
+    //   console.log(question);
+    //   return Object.assign({}, state, {
+    //     i,
+    //     question
+    //   });
+    // case actionTypes.PREVIOUS_QUESTION:
+    //   i = i - 1;
+    //   question = questions[i];
+    //   console.log(i);
+    //   return Object.assign({}, state, {
+    //     i,
+    //     question
+    //   });
     case actionTypes.EDIT_RESPONSE:
       return state;
-    case actionTypes.GET_QUESTIONS_AZ_SPANISH:
+    case actionTypes.GET_QUESTIONS:
       console.log(action);
       return state;
+    case actionTypes.SET_QUESTIONS:
+      let questions = action.questions;
+      if (typeof(Storage) !== "undefined") {
+        localStorage.setItem('questions', JSON.stringify(questions));
+      } else {
+        return null;
+      }
+      return Object.assign({}, state, {
+        questions
+      });
     case actionTypes.SET_RESPONSE:
       response = action.response;
       responses = state.responses.concat(response);

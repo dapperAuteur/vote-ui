@@ -69,13 +69,17 @@ class QuestionRadio extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   };
 
-  componentWillMount() {
+  componentDidMount() {
     console.log(this.props);
     let pathname = this.props.location.pathname;
     if (pathname.slice(-2) === "es") {
-      this.props.questions = this.props.questionsEsp;
+      this.props.setQuestions(this.props.questionsEsp);
+      // this.props.questions = this.props.questionsEsp;
+      console.log(this.props);
     } else {
-      this.props.questions = this.props.questionsEng;
+      this.props.setQuestions(this.props.questionsEng);
+      // this.props.questions = this.props.questionsEng;
+      console.log(this.props);
     }
   }
 
@@ -148,85 +152,91 @@ class QuestionRadio extends Component {
   };
 
   render() {
-    const {
-      // i,
-      pathname,
-      question,
-      responseText
-    } = this.state;
-    console.log(question);
-    const {
-      // options,
-      // questionNumber,
-      questionText,
-      questionTextEng,
-      questionTextEsp
-    } = question;
-    let pathnameEnding = pathname.slice(-2);
-    console.log(pathnameEnding);
-    return (
-      <div>
-        <form onSubmit={ this.handleSubmit } className="theForm">
-          <h3 className="questions">{ questionTextEsp }</h3>
-          {
-            question.hasOwnProperty("options") ?
-            <div>
-                {
-                  options.map((o, i) => (
-                    <div>
-                      <input
-                        id={ o.textEsp }
-                        key={ o.textEsp }
-                        className='form-control'
-                        name='responseText'
-                        type="radio"
-                        value={ JSON.stringify(o) }
-                        onChange={ this.handleChange } />
-                          <label
-                            htmlFor='options'>
-                            { o.textEsp }
-                          </label>
-                    </div>
-                  ))
-                }
-            </div> :
-            <input
-              id='responseText'
-              key='responseText'
-              type='text'
-              name='responseText'
-              className='form-control'
-              autoComplete='off'
-              value={ responseText }
-              onChange={ this.handleChange } />
-          }
-
-          { pathname.slice(-4) === "edit" ?
-            <button
-              disabled={ responseText === "" }
-              className="btn btn-default"
-              type='submit'>
-                Entregar
-            </button> :
-            <div className="buttons">
-              <Link
-                className="btn btn-warning"
-                to={{
-                  pathname: '/'
-                }}>
-                  Retroceder
-                </Link>
+    if (this.state.questions.length === 0) {
+      return (
+        <div>Loading...</div>
+      )
+    } else {
+      const {
+        // i,
+        pathname,
+        question,
+        responseText
+      } = this.state;
+      console.log(question);
+      const {
+        options,
+        // questionNumber,
+        questionText,
+        questionTextEng,
+        questionTextEsp
+      } = question;
+      let pathnameEnding = pathname.slice(-2);
+      console.log(pathnameEnding);
+      return (
+        <div>
+          <form onSubmit={ this.handleSubmit } className="theForm">
+            <h3 className="questions">{ questionTextEsp }</h3>
+            {
+              question.hasOwnProperty("options") ?
+              <div>
+                  {
+                    options.map((o, i) => (
+                      <div>
+                        <input
+                          id={ o.textEsp }
+                          key={ o.textEsp }
+                          className='form-control'
+                          name='responseText'
+                          type="radio"
+                          value={ JSON.stringify(o) }
+                          onChange={ this.handleChange } />
+                            <label
+                              htmlFor='options'>
+                              { o.textEsp }
+                            </label>
+                      </div>
+                    ))
+                  }
+              </div> :
+              <input
+                id='responseText'
+                key='responseText'
+                type='text'
+                name='responseText'
+                className='form-control'
+                autoComplete='off'
+                value={ responseText }
+                onChange={ this.handleChange } />
+            }
+  
+            { pathname.slice(-4) === "edit" ?
               <button
                 disabled={ responseText === "" }
-                type='submit'
-                className='btn btn-default'>
-                Siguiente
-              </button>
-            </div>
-          }
-        </form>
-      </div>
-    )
+                className="btn btn-default"
+                type='submit'>
+                  Entregar
+              </button> :
+              <div className="buttons">
+                <Link
+                  className="btn btn-warning"
+                  to={{
+                    pathname: '/'
+                  }}>
+                    Retroceder
+                  </Link>
+                <button
+                  disabled={ responseText === "" }
+                  type='submit'
+                  className='btn btn-default'>
+                  Siguiente
+                </button>
+              </div>
+            }
+          </form>
+        </div>
+      )
+    }
   }
 };
 
@@ -252,6 +262,7 @@ const mapDispatchToProps = dispatch => {
     editResponse: (response) => dispatch(actions.editResponse()),
     getQuestions: () => dispatch(actions.getQuestions()),
     nextQuestion: () => dispatch(actions.nextQuestion()),
+    setQuestions: (questions) => dispatch(actions.setQuestions(questions)),
     setResponse: (response) => dispatch(actions.setResponse())
   };
 };
