@@ -142,12 +142,16 @@ class QuestionRadio extends Component {
     const {
       options,
       // questionNumber,
-      questionText
+      questionText,
+      questionTextEng,
+      questionTextEsp
     } = question;
+    let pathnameEnding = pathname.slice(-2);
+    console.log(pathnameEnding);
     return (
       <div>
         <form onSubmit={ this.handleSubmit } className="theForm">
-          <h3 className="questions">{ questionText }</h3>
+          <h3 className="questions">{ questionTextEsp }</h3>
           {
             question.hasOwnProperty("options") ?
             <div>
@@ -155,8 +159,8 @@ class QuestionRadio extends Component {
                   options.map((o, i) => (
                     <div>
                       <input
-                        id={ o.text }
-                        key={ o.text }
+                        id={ o.textEsp }
+                        key={ o.textEsp }
                         className='form-control'
                         name='responseText'
                         type="radio"
@@ -164,7 +168,7 @@ class QuestionRadio extends Component {
                         onChange={ this.handleChange } />
                           <label
                             htmlFor='options'>
-                            { o.text }
+                            { o.textEsp }
                           </label>
                     </div>
                   ))
@@ -227,10 +231,10 @@ const mapDispatchToProps = dispatch => {
   return {
     // decrementIndexSpanish: () => dispatch(actions.decrementIndexSpanish()),
     // incrementIndexSpanish: () => dispatch(actions.incrementIndexSpanish()),
-    editResponse: (response) => dispatch(actions.editResponseSpanish()),
-    getQuestions: () => dispatch(actions.getQuestionsAzSpanish()),
+    editResponse: (response) => dispatch(actions.editResponse()),
+    getQuestions: () => dispatch(actions.getQuestions()),
     nextQuestion: () => dispatch(actions.nextQuestion()),
-    setResponse: (response) => dispatch(actions.setResponseSpanish())
+    setResponse: (response) => dispatch(actions.setResponse())
   };
 };
 

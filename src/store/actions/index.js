@@ -1,3 +1,17 @@
+export {
+  decrementIndex,
+  editResponse,
+  getQuestions,
+  incrementIndex,
+  nextQuestion,
+  previousQuestion,
+  setResponse,
+  setQuestion,
+  setResponses,
+  getResponse,
+  getResponses
+} from './voterAction';
+
 // export {
 //   confirmAnswers,
 //   getQuestion,
@@ -15,16 +29,16 @@
 //   setResponseEnglish
 // } from './voterActionAzEnglish';
 
-export {
-  decrementIndexSpanish,
-  editResponseSpanish,
-  getQuestionsAzSpanish,
-  incrementIndexSpanish,
-  nextQuestion,
-  previousQuestion,
-  setResponseSpanish,
-  setQuestionAzSpanish,
-  setResponsesSpanish,
-  getResponseSpanish,
-  getResponsesSpanish
-} from './voterActionAzSpanish';
+// export {
+//   decrementIndexSpanish,
+//   editResponseSpanish,
+//   getQuestionsAzSpanish,
+//   incrementIndexSpanish,
+//   nextQuestion,
+//   previousQuestion,
+//   setResponseSpanish,
+//   setQuestionAzSpanish,
+//   setResponsesSpanish,
+//   getResponseSpanish,
+//   getResponsesSpanish
+// } from './voterActionAzSpanish';

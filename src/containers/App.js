@@ -20,7 +20,7 @@ class App extends Component {
           <div className="register-btn">
             <Link
               to={{
-                pathname: '/qualify/en'
+                pathname: '/questions/en'
               }}
               onClick={ e => setLanguage("English") }
               className="reg-link btn default-btn">
@@ -28,7 +28,7 @@ class App extends Component {
             </Link>
             <Link
               to={{
-                pathname: '/qualify/es'
+                pathname: '/questions/es'
               }}
               onClick={ e => setLanguage("Spanish") }
               className="reg-link btn default-btn">
@@ -43,7 +43,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setLanguage: (lang) => dispatch(actions.setResponseSpanish(lang))
+    setLanguage: (lang) => dispatch(actions.setResponse(lang))
   }
 }
 
