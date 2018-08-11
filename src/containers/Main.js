@@ -8,7 +8,11 @@ import Register from '../components/Register';
 
 const routes = [
   {
-    path: '/qualify',
+    path: '/qualify/es',
+    component: Register
+  },
+  {
+    path: '/qualify/en',
     component: Register
   },
   {

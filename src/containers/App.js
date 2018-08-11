@@ -13,12 +13,20 @@ class App extends Component {
         <Main />
         {
           pathname === "/" &&
-          <Link
-          to={{
-            pathname: '/qualify'
-          }}>
-          Register To Vote
-        </Link>
+          <div className="register-btn">
+            <Link
+              to={{
+                pathname: '/qualify/en'
+              }}>
+              Register To Vote
+            </Link>
+            <Link
+              to={{
+                pathname: '/qualify/es'
+              }}>
+              Inscríbase Para Votar
+            </Link>
+          </div>
         }
       </div>
     );
