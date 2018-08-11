@@ -44,6 +44,7 @@ export const setQuestionAzSpanish = () => {
 }
 
 export const setResponseSpanish = (response) => {
+  console.log(response);
   return {
     type: actionTypes.SET_RESPONSE,
     response
