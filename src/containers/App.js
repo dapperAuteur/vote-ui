@@ -17,13 +17,15 @@ class App extends Component {
             <Link
               to={{
                 pathname: '/qualify/en'
-              }}>
+              }}
+              className="reg-link btn default-btn">
               Register To Vote
             </Link>
             <Link
               to={{
                 pathname: '/qualify/es'
-              }}>
+              }}
+              className="reg-link btn default-btn">
               Inscríbase Para Votar
             </Link>
           </div>
